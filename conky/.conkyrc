@@ -1,0 +1,10 @@
+out_to_x no
+out_to_console yes
+update_interval 2.0
+update_interval_on_battery 5.0
+total_run_times 0
+use_spacer none
+no_buffers yes 
+
+TEXT
+${time %R %a,%d-%#b-%y} | T: ${hwmon 1 temp 1}C | Bat: ${battery} | enp0s25: ${addr enp0s25}, wlo1: ${addr wlo1} | RAM: $memperc% | CPU: ${cpubar} | ${execp cat /tmp/pwld.out} | 

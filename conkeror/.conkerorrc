@@ -1,0 +1,102 @@
+// -*- mode: js -*-
+
+define_key(content_buffer_normal_keymap, "f",
+    "follow-new-buffer-background");
+define_key(content_buffer_normal_keymap, "F",
+    "follow");
+
+define_webjump("imdb", "http://www.imdb.com/find?s=all;q=%s");
+
+// tab bar
+require("new-tabs.js");
+
+// clicks in new buffer
+require("clicks-in-new-buffer.js");
+clicks_in_new_buffer_target = OPEN_NEW_BUFFER_BACKGROUND;
+
+url_completion_use_history=true;
+session_pref('browser.history_expire_days', 30);
+
+// load session module
+//require("session.js");
+//session_auto_save_auto_load = true; // auto-load session
+
+// load download buffers in the background in the current
+// window, instead of in new windows.
+download_buffer_automatic_open_target = OPEN_NEW_BUFFER_BACKGROUND;
+browser_default_open_target = OPEN_NEW_BUFFER_BACKGROUND;
+
+function define_switch_buffer_key (key, buf_num) {
+    define_key(default_global_keymap, key,
+               function (I) {
+           switch_to_buffer(I.window,
+                                    I.window.buffers.get_buffer(buf_num));
+               });
+}
+for (let i = 0; i < 10; ++i) {
+    define_switch_buffer_key(String((i+1)%10), i);
+}
+
+// default directory for downloads and shell commands.
+cwd = get_home_directory().append("Downloads");
+
+// external programs for handling various mime types.
+external_content_handlers.set("application/pdf", "zathura");
+external_content_handlers.set("application/postscript", "zathura");
+external_content_handlers.set("application/x-dvi", "zathura");
+content_handlers.set("application/pdf", content_handler_open);
+
+view_source_use_external_editor = true;
+
+interactive("switch-to-other-buffer",
+            "Switch to the previously open buffer",
+            function (I) {
+                var blist = I.window.buffers.buffer_list
+                if (blist.length > 1)
+                    switch_to_buffer(I.window, blist[1]);
+            });
+define_key(content_buffer_normal_keymap, "C-x o",
+    "switch-to-other-buffer");
+
+define_key("content_buffer_normal_keymap", "j",
+    "cmd_scrollLineDown");
+define_key("content_buffer_normal_keymap", "k",
+    "cmd_scrollLineUp");
+
+function darken_page (I) {
+    var styles='* { background: black !important; color: grey !important; }'+
+        ':link, :link * { color: #4986dd !important; }'+
+        ':visited, :visited * { color: #d75047 !important; }';
+    var document = I.buffer.document;
+    var newSS=document.createElement('link');
+    newSS.rel='stylesheet';
+    newSS.href='data:text/css,'+escape(styles);
+    document.getElementsByTagName("head")[0].appendChild(newSS);
+}
+
+interactive("darken-page", "Darken the page in an attempt to save your eyes.",
+            darken_page);
+
+define_key(content_buffer_normal_keymap, "C-x d", "darken-page");
+
+session_pref('network.proxy.ftp',    127.0.0.1);
+session_pref('network.proxy.http',   127.0.0.1);
+session_pref('network.proxy.ssl',    127.0.0.1);
+
+session_pref('network.proxy.ftp_port',    8118);
+session_pref('network.proxy.http_port',   8118);
+session_pref('network.proxy.ssl_port',    8118);
+
+session_pref('network.proxy.share_proxy_settings', true);
+session_pref('network.proxy.type', 1);
+
+require("daemon.js");
+daemon_mode = 1;
+url_remoting_fn = load_url_in_new_buffer;
+
+add_hook("mode_line_hook", mode_line_adder(downloads_status_widget));
+
+require("reddit");
+require("duckduckgo");
+
+

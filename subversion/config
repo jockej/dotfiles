@@ -1,0 +1,66 @@
+[helpers]
+editor-cmd = emacsclient -t
+### Set diff-cmd to the absolute path of your 'diff' program.
+### This will override the compile-time default, which is to use
+### Subversion's internal diff implementation.
+# diff-cmd = diff_program (diff, gdiff, etc.)
+### Set diff3-cmd to the absolute path of your 'diff3' program.
+### This will override the compile-time default, which is to use
+### Subversion's internal diff3 implementation.
+# diff3-cmd = diff3_program (diff3, gdiff3, etc.)
+### Set diff3-has-program-arg to 'true' or 'yes' if your 'diff3'
+### program accepts the '--diff-program' option.
+# diff3-has-program-arg = [true | false]
+### Set merge-tool-cmd to the command used to invoke your external
+### merging tool of choice. Subversion will pass 4 arguments to
+### the specified command: base theirs mine merged
+# merge-tool-cmd = merge_command 
+merge-tool-cmd = 
+
+[miscellany]
+global-ignores = *.o *.lo *.la #*# .*.rej *.rej .*~ *~ .#* .DS_Store
+log-encoding = utf8
+enable-auto-props = yes
+
+[auto-props]
+#####
+# Text file formats
+#####
+*.txt = svn:eol-style=native
+*.xml = svn:eol-style=native
+*.xslt = svn:eol-style=native
+*.xsl = svn:eol-style=native
+*.html = svn:eol-style=native
+*.xhtml = svn:eol-style=native
+
+#####
+# Image file formats
+#####
+*.png = svn:mime-type=image/png
+*.jpg = svn:mime-type=image/jpeg
+*.gif = svn:mime-type=image/gif
+*.tif = svn:mime-type=image/tiff
+*.bmp = svn:mime-type=image/bmp
+
+#####
+# Code file formats (text)
+#####
+*.c = svn:eol-style=native
+*.cc = svn:eol-style=native
+*.cpp = svn:eol-style=native
+*.h = svn:eol-style=native
+*.hpp = svn:eol-style=native
+*.r = svn:eol-style=native
+*.rtf = svn:eol-style=native
+*.f = svn:eol-style=native
+*.f90 = svn:eol-style=native
+*.f95 = svn:eol-style=native
+*.f03 = svn:eol-style=native
+*.f08 = svn:eol-style=native
+ *.sh = svn:executable=yes
+
+#####
+# Other binary file formats
+#####
+*.pdf = svn:mime-type=application/pdf
+

@@ -1,0 +1,6 @@
+(setq standard-indent 2)
+(setq ring-bell nil)
+(setq backup-directory "~/zile-backups")
+; Better bindings for when backspace generates C-h
+(global-set-key "\BACKSPACE" backward-delete-char)
+(global-set-key "\C-h" backward-delete-char)

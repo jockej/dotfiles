@@ -1,0 +1,24 @@
+[user]
+	email = joakim.jalap@gmail.com
+	name = Joakim Jalap
+
+[core]
+        excludesfile = ~/.gitignore
+
+[push]
+	default = simple
+
+[diff]
+	tool = ediff
+	guitool = ediff
+
+[difftool "ediff"]
+	cmd = /home/joakim/.ediff-sh/ediff.sh $LOCAL $REMOTE $MERGED
+
+[merge]
+	tool = ediff
+
+[mergetool "ediff"]
+	cmd = /home/joakim/.ediff-sh/ediff.sh $LOCAL $REMOTE $MERGED $BASE
+	truetExitCode = true
+
