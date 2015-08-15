@@ -1,0 +1,106 @@
+* My config
+
+** My setup
+
+*** Operating systems
+
+I use Arch Linux for my desktop, htpc and laptops, and Freebsd for my server and
+router. I've also used Freebsd on a laptop, and it really works quite well. I
+think that this config should work on any reasonable OS like Freebsd, any
+GNU/Linux distro, OpenBSD etc.
+
+*** Window manager
+
+I use =i3=. It is really good, although I've honestly never really understood
+how it works. In my config for =i3= I set some custom commands, nothing very
+fancy.
+
+**** System monitor
+
+I use =conky=. I guess I could just as well use =i3='s builtin, but I migrated
+my =conky= setup over from =spectrwm= which I used before, and it just sorta
+works.
+
+
+*** Browsing
+
+I run a local =privoxy= proxy, which is an adblocking proxy. I think this is
+better than using =adblocker=, partly becuase it works for all browsers, and
+partly becuse I just don't trust the =adblocker= devs.
+
+**** Conkeror
+
+=Conkeror= is a really cool, =Emacs= like browser. I try to use for most of my
+graphical browsing.
+
+**** Firefox
+
+For those times when =conkeror= doesn't fit the bill I use =Firefox=.
+
+**** Chromium
+
+I use =chromium= for flash-heavy tasks, mainly youtube. I have =adblocker=
+enabled, and don't run it through =privoxy=. Partly because =Jira= doesn't play
+well with =privoxy= form some reason.
+
+**** w3m
+
+For text based browsing I use =w3m=. It's very fast, and the fact that it has no
+javascript support is a bonus. I run =w3m= in =xterm=, because it handles images
+much better than =urxvt=.
+
+**** UZBL
+
+I used this more in the past, but now I've sorta stopped...
+
+*** Keyboard layout
+
+I use my own little program called =pwld= to keep track of my keyboard layout,
+together with =setxkbmap=. It's very minimalistic, but it works.
+
+*** PDF reader
+
+I use =zathura=, which is an awesome, minimalist reader. My conf includes some
+``Emacsy'' keybindings, solarized colors and low contrast reading.
+
+*** Shell
+
+I use =zsh=. There's really no reason, I just started 'cause all the cool kids
+were doing it. 
+
+*** Mail
+
+I use =mbsync= to fetch my mail from Gmail and Fastmail. Then I read it in
+=Emacs=.
+
+*** Terminal emulators
+
+Mainly I use =urxvt= in daemon mode. When I want to browse with =w3m= I use =uxterm=.
+
+*** Office suite
+
+I use =libreoffice= for the stuff I can't do in =Emacs=. It works pretty well.
+
+*** Music
+
+I have =spotify= installed, I don't use it much though to be honest. Usually I
+stream from my server using =musicpd= (or =mpd= for those who don't use FreeBSD)
+and listen to it with =mplayer=.
+
+*** Video
+
+=mplayer=. That's all.
+
+*** Everything else, Emacs
+
+Everything else I do in =Emacs=.
+
+** Manual steps
+
+
+
+** Required packages
+
+
+** Stowing the dotfiles
+

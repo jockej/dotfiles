@@ -1,0 +1,9 @@
+bear-git
+conkeror-git
+delorean-dark
+global
+gnu-cobol
+rtags-git
+rxvt-unicode-patched
+universal-ctags-git
+urxvt-perls-git

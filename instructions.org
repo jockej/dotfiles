@@ -1,8 +1,0 @@
-* My config
-
-** Manual setup
-
-** Required packages
-
-** Stowing the dotfiles
-

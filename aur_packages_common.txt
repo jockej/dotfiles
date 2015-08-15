@@ -1,0 +1,7 @@
+bear-git
+global
+gnu-cobol
+rtags-git
+universal-ctags-git
+
+

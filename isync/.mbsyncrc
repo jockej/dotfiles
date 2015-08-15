@@ -2,16 +2,11 @@ IMAPAccount gmail
 # Address to connect to
 Host imap.gmail.com
 User joakim.jalap@gmail.com
-#Pass ***************
 # To store the password in an encrypted file use PassCmd instead of Pass
-PassCmd "gpg2 -q --for-your-eyes-only --no-tty -d ~/.mailpass.gpg"
-#
+#PassCmd "gpg2 -q --for-your-eyes-only --no-tty -d ~/.mailpass.gpg"
 # Use SSL
 SSLType IMAPS
-# The following line should work. If get certificate errors, uncomment the two following lines and read the "Troubleshooting" section.
 CertificateFile /etc/ssl/certs/ca-certificates.crt
-#CertificateFile ~/.cert/imap.gmail.com.pem
-#CertificateFile ~/.cert/Equifax_Secure_CA.pem
 
 IMAPStore gmail-remote
 Account gmail
@@ -36,7 +31,6 @@ SyncState *
 IMAPAccount fastmail
 Host mail.messagingengine.com
 User joakimjalap@fastmail.com
-PassCmd "gpg2 -q --for-your-eyes-only --no-tty -d ~/.fastmailpass.gpg"
 SSLType IMAPS
 CertificateFile /etc/ssl/certs/ca-certificates.crt
 

@@ -1,0 +1,5 @@
+chromium-pepper-flash
+conkeror-git
+delorean-dark
+rxvt-unicode-patched
+urxvt-perls-git
