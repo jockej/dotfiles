@@ -6,6 +6,16 @@ if [ ! -d "~/.config" ]; then
   mkdir "~/.config"
 fi
 
+if [ ! -d "~/.gnupg" ]; then
+  echo "Creating ~/.gnupg"
+  mkdir "~/.gnupg"
+fi
+
+if [ ! -d "~/.ssh" ]; then
+  echo "Creating ~/.ssh"
+  mkdir "~/.ssh/"
+fi
+
 ZILE_BU_DIR="~/.zile-backups"
 if [ ! -d "$ZILE_BU_DIR" ]; then
   printf "Couldn't find zile backup dir, creating it: %s\n"\
@@ -13,7 +23,7 @@ if [ ! -d "$ZILE_BU_DIR" ]; then
   mkdir "$ZILE_BU_DIR"
 fi
 
-SUBDIRS=`ls -d */`
+SUBDIRS=`ls -d stow*`
 
 echo "Will now run stow on the following directories:"
 for DIR in $SUBDIRS; do
@@ -21,6 +31,5 @@ for DIR in $SUBDIRS; do
 done
 
 for DIR in $SUBDIRS; do
-  stow -t "" "$DIR"
+  stow -t "$HOME" "$DIR"
 done
-
