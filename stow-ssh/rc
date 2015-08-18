@@ -1,1 +1,1 @@
-exec zsh -i --login
+exec zsh -i
