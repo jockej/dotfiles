@@ -7,7 +7,12 @@ unsetopt autocd beep nomatch
 bindkey -e
 
 #setopt shwordsplit
-alias ls="ls --color=auto -B -F --group-directories-first"
+SYST=$(uname)
+if [[ "$SYST" = "Linux" ]]; then
+  alias ls="ls --color=auto -B -F --group-directories-first"
+else
+  alias ls="ls -F -G"
+fi
 alias l="ls"
 alias uxterm='uxterm -fa monospace:pixelsize=12'
 
@@ -26,6 +31,7 @@ export http_proxy=http://localhost:8118
 export HTTP_PROXY=$http_proxy
 export https_proxy=$http_proxy
 export HTTPS_PROXY=$http_proxy
+export no_proxy="localhost,127.0.0.1"
 
 alias emacs='emacsclient -c'
 
