@@ -1,22 +1,24 @@
 #!/bin/sh
 # A script to setup all the dotfiles
 
-if [ ! -d "~/.config" ]; then
+HOMEDIR=`realpath $HOME`
+
+if [ ! -d "$HOMEDIR/.config" ]; then
   echo "Creating config dir"
-  mkdir "~/.config"
+  mkdir "$HOMEDIR/.config"
 fi
 
-if [ ! -d "~/.gnupg" ]; then
-  echo "Creating ~/.gnupg"
-  mkdir "~/.gnupg"
+if [ ! -d "$HOMEDIR/.gnupg" ]; then
+  echo "Creating $HOMEDIR/.gnupg"
+  mkdir "$HOMEDIR/.gnupg"
 fi
 
-if [ ! -d "~/.ssh" ]; then
-  echo "Creating ~/.ssh"
-  mkdir "~/.ssh/"
+if [ ! -d "$HOMEDIR/.ssh" ]; then
+  echo "Creating $HOMEDIR/.ssh"
+  mkdir "$HOMEDIR/.ssh/"
 fi
 
-ZILE_BU_DIR="~/.zile-backups"
+ZILE_BU_DIR="$HOMEDIR/.zile-backups"
 if [ ! -d "$ZILE_BU_DIR" ]; then
   printf "Couldn't find zile backup dir, creating it: %s\n"\
          "$ZILE_BU_DIR"
@@ -31,5 +33,5 @@ for DIR in $SUBDIRS; do
 done
 
 for DIR in $SUBDIRS; do
-  stow -t "$HOME" "$DIR"
+  stow -t "$HOMEDIR" "$DIR"
 done
