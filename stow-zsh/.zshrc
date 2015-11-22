@@ -39,6 +39,8 @@ alias emacs='emacsclient -c'
 
 alias mc='mc -b'
 
+alias susp='systemctl suspend'
+
 #export PATH="$HOME/.pyenv/bin:$PATH"
 #eval "$(pyenv init -)"
 #eval "$(pyenv virtualenv-init -)"

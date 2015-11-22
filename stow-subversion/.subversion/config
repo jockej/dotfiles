@@ -4,21 +4,23 @@ editor-cmd = emacsclient -t
 ### This will override the compile-time default, which is to use
 ### Subversion's internal diff implementation.
 # diff-cmd = diff_program (diff, gdiff, etc.)
+#diff-cmd = ~/.ediff.sh/svndiff.sh
 ### Set diff3-cmd to the absolute path of your 'diff3' program.
 ### This will override the compile-time default, which is to use
 ### Subversion's internal diff3 implementation.
 # diff3-cmd = diff3_program (diff3, gdiff3, etc.)
+diff3-cmd = /home/joakimj/.ediff-sh/svndiff.sh
 ### Set diff3-has-program-arg to 'true' or 'yes' if your 'diff3'
 ### program accepts the '--diff-program' option.
-# diff3-has-program-arg = [true | false]
+diff3-has-program-arg = false
 ### Set merge-tool-cmd to the command used to invoke your external
 ### merging tool of choice. Subversion will pass 4 arguments to
 ### the specified command: base theirs mine merged
 # merge-tool-cmd = merge_command 
-merge-tool-cmd = 
+merge-tool-cmd = /home/joakimj/.ediff-sh/svndiff.sh
 
 [miscellany]
-global-ignores = *.o *.lo *.la #*# .*.rej *.rej .*~ *~ .#* .DS_Store
+global-ignores = *.o *.lo *.la #*# .*.rej *.rej .*~ *~ .#* .DS_Store *GTAGS *GRTAGS *TAGS *GPATH *ID
 log-encoding = utf8
 enable-auto-props = yes
 
@@ -26,8 +28,8 @@ enable-auto-props = yes
 #####
 # Text file formats
 #####
-*.txt = svn:eol-style=native
-*.xml = svn:eol-style=native
+*.txt = svn:eol-style=native;svn:mime-type=text/plain;svn:keywords=Id Date Revision Author HeadURL
+*.xml = svn:mime-type=text/xml;svn:eol-style=native
 *.xslt = svn:eol-style=native
 *.xsl = svn:eol-style=native
 *.html = svn:eol-style=native
@@ -45,11 +47,11 @@ enable-auto-props = yes
 #####
 # Code file formats (text)
 #####
-*.c = svn:eol-style=native
-*.cc = svn:eol-style=native
-*.cpp = svn:eol-style=native
-*.h = svn:eol-style=native
-*.hpp = svn:eol-style=native
+*.c = svn:eol-style=native;svn:mime-type=text/plain;svn:keywords=Id Date Revision Author HeadURL
+*.cc = svn:eol-style=native;svn:mime-type=text/plain
+*.cpp = svn:eol-style=native;svn:mime-type=text/plain
+*.h = svn:eol-style=native;svn:mime-type=text/plain;svn:keywords=Id Date Revision Author HeadURL
+*.hpp = svn:eol-style=native;svn:mime-type=text/plain
 *.r = svn:eol-style=native
 *.rtf = svn:eol-style=native
 *.f = svn:eol-style=native

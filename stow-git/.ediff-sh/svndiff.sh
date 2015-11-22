@@ -2,7 +2,7 @@
 
 
 run_emacs_cmd() {
-  emacsclient $C_OR_T --eval $EVALSTR 2>&1
+  emacsclient --no-wait $C_OR_T --eval "$EVALSTR" 2>&1
 }
 
 run_diff2() {
@@ -28,21 +28,17 @@ else
 fi
 
 case ${#} in
-  2)
-    run_diff2 $1 $2;;
   3)
-    run_diff3 $1 $2 $3;;
+    run_diff2 "$1" "$2";;
   4)
-    run_merge $1 $2 $3 $4;;
+    run_diff3 "$1" "$2" "$3";;
+  5)
+    run_merge "$1" "$2" "$3" "$4";;
   *)
     echo "Usage ${0} [FILE1 FILE2] [FILE1 BASE FILE2] [BASE THEIRS MINE MERGED]"
     exit 1
     ;;
 esac
-
-
-
-
 
 if [ ! $(egrep -c '^(<<<<<<<|=======|>>>>>>>|####### Ancestor)' ${_MERGED}) = 0 ]; then
     _MERGEDSAVE=$(${_MKTEMP} --tmpdir `${_BASENAME} ${_MERGED}`.XXXXXXXXXX)
@@ -54,4 +50,3 @@ if [ ! $(egrep -c '^(<<<<<<<|=======|>>>>>>>|####### Ancestor)' ${_MERGED}) = 0 
 fi
 
 exit 0
-
