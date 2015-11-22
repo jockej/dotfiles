@@ -10,8 +10,10 @@ bindkey -e
 SYST=$(uname)
 if [[ "$SYST" = "Linux" ]]; then
   alias ls="ls --color=auto -B -F --group-directories-first"
-else
+elif [[ "$SYST" = "FreeBSD" ]]; then
   alias ls="ls -F -G"
+elif [[ "$SYST" = "OpenBSD" ]]; then
+  alias ls="ls -F"
 fi
 alias l="ls"
 alias uxterm='uxterm -fa monospace:pixelsize=12'

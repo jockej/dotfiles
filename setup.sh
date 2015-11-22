@@ -1,7 +1,19 @@
 #!/bin/sh
 # A script to setup all the dotfiles
 
-HOMEDIR=`realpath $HOME`
+# check for realpath(1) which doesn't exist on OpenBSD
+which realpath
+
+if [ $? -eq 0 ]; then
+  HOMEDIR=`realpath $HOME`
+else
+  HOMEDIR=`echo $HOME`
+fi
+
+if [ -z "$HOMEDIR" ]; then
+  echo "Couldn't set HOMEDIR!"
+  exit 1
+fi
 
 if [ ! -d "$HOMEDIR/.config" ]; then
   echo "Creating config dir"
@@ -35,3 +47,12 @@ done
 for DIR in $SUBDIRS; do
   stow -t "$HOMEDIR" "$DIR"
 done
+
+xsess="$HOMEDIR/.xsession"
+if [ -h "$xsess" ]; then
+  echo "Symbolic link $xsess already exists!"
+elif [ -f "$xsess" ]; then
+  echo "There is a regular file $xsess"
+else
+  ln -s "$HOMEDIR/.xinitrc" "$xsess"
+fi
