@@ -3,6 +3,7 @@ HISTFILE=~/.zshhist
 HISTSIZE=1000
 SAVEHIST=1000
 setopt appendhistory extendedglob notify
+setopt histignorealldups sharehistory
 unsetopt autocd beep nomatch
 bindkey -e
 
@@ -41,6 +42,21 @@ alias mc='mc -b'
 
 alias susp='systemctl suspend'
 
+path+="$HOME/.scripts"
+
 #export PATH="$HOME/.pyenv/bin:$PATH"
 #eval "$(pyenv init -)"
 #eval "$(pyenv virtualenv-init -)"
+
+
+
+# The following lines were added by compinstall
+
+zstyle ':completion:*' completer _complete _ignored
+zstyle ':completion:*' matcher-list 'm:{[:lower:][:upper:]}={[:upper:][:lower:]}'
+zstyle ':completion:*' original false
+zstyle :compinstall filename '/home/joakimj/.zshrc'
+
+autoload -Uz compinit
+compinit
+# End of lines added by compinstall

@@ -1,7 +1,9 @@
 #!/bin/sh
 # A script to setup all the dotfiles
 
-# check for realpath(1) which doesn't exist on OpenBSD
+# check for realpath(1) which doesn't exist on OpenBSD.
+# We need to use realpath(1) on FreeBSD since the home directory is actually
+# /usr/home/$USERNAME, which seems to matter very much to stow(1)
 which realpath
 
 if [ $? -eq 0 ]; then
@@ -35,6 +37,12 @@ if [ ! -d "$ZILE_BU_DIR" ]; then
   printf "Couldn't find zile backup dir, creating it: %s\n"\
          "$ZILE_BU_DIR"
   mkdir "$ZILE_BU_DIR"
+fi
+
+SCRIPTS_DIR="$HOMEDIR/.scripts"
+if [ ! -d "$SCRIPTS_DIR" ]; then
+  echo "Creating $SCRIPTS_DIR"
+  mkdir "$SCRIPTS_DIR"
 fi
 
 SUBDIRS=`ls -d stow*`
