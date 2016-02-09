@@ -41,6 +41,11 @@ alias mc='mc -b'
 
 alias susp='systemctl suspend'
 
+if [[ "$SYST" = "OpenBSD" ]]; then
+  export AUTOCONF_VERSION=2.69
+  export AUTOMAKE_VERSION=1.15
+fi
+
 #export PATH="$HOME/.pyenv/bin:$PATH"
 #eval "$(pyenv init -)"
 #eval "$(pyenv virtualenv-init -)"
