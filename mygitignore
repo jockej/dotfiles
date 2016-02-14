@@ -21,7 +21,9 @@ Makefile.in
 /config.status
 /config.sub
 /ar-lib
-
+.deps
+.libs
+/config.guess
 
 *~
 \#*\#
@@ -51,9 +53,6 @@ tramp
 
 # AUCTeX auto folder
 /auto/
-
-# cask packages
-.cask/
 
 # server auth directory
 /server/
@@ -88,8 +87,15 @@ tramp
 *.out
 *.app
 
+# Don't wanna see these...
+*.core
+
 # TAGS and such
 GRTAGS
 GTAGS
+GPATH
+GRPATH
 TAGS
 ID
+cscope.files
+cscope.out
