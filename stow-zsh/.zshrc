@@ -48,7 +48,8 @@ if [[ "$SYST" = "OpenBSD" ]]; then
 fi
 
 path+="$HOME/.scripts"
-
+path=('/usr/local/bin/' $path)
+export PATH
 #export PATH="$HOME/.pyenv/bin:$PATH"
 #eval "$(pyenv init -)"
 #eval "$(pyenv virtualenv-init -)"
