@@ -36,6 +36,7 @@ case ${#} in
     run_merge "$1" "$2" "$3" "$4";;
   *)
     echo "Usage ${0} [FILE1 FILE2] [FILE1 BASE FILE2] [BASE THEIRS MINE MERGED]"
+    echo "Called with args $*"
     exit 1
     ;;
 esac
