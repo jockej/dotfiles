@@ -49,11 +49,14 @@ fi
 
 path+="$HOME/.scripts"
 path=('/usr/local/bin/' $path)
+# I install packages I've compiled from source to here to keep track of them
+path=('/jj/' $path)
 export PATH
 #export PATH="$HOME/.pyenv/bin:$PATH"
 #eval "$(pyenv init -)"
 #eval "$(pyenv virtualenv-init -)"
 
+export MANPATH="/usr/man:/usr/share/man:/usr/local/man:/usr/local/share/man:/jj/man:/jj/share/man"
 
 
 # The following lines were added by compinstall
