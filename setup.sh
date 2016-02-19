@@ -64,3 +64,14 @@ elif [ -f "$xsess" ]; then
 else
   ln -s "$HOMEDIR/.xinitrc" "$xsess"
 fi
+
+heredir=`pwd`
+gitign="$HOMEDIR/.gitignore"
+if [ -h "$gitign" ]; then
+  echo "Symbolic link $gitign already exists!"
+elif [ -f "$gitign" ]; then
+  echo "There is a regular file $gitign"
+else
+  ln -s "$heredir/mygitignore" "$HOMEDIR/.gitignore"
+fi
+
