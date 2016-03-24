@@ -50,9 +50,9 @@ if [[ "$SYST" = "OpenBSD" ]]; then
   export AUTOMAKE_VERSION=1.15
 fi
 
-# I install packages I've compiled from source to here to keep track of them
-path+="$HOME/progs"
 path=('/usr/local/bin' $path) # /usr/local/bin should override /usr/bin
+# I install packages I've compiled from source to here to keep track of them
+path=('$HOME/progs' $path)
 
 export PATH
 
@@ -60,7 +60,7 @@ export PATH
 #eval "$(pyenv init -)"
 #eval "$(pyenv virtualenv-init -)"
 
-export MANPATH="/usr/man:/usr/share/man:/usr/local/man:/usr/local/share/man:$HOME/progs/man:$HOME/progs/share/man"
+export MANPATH="$HOME/progs/man:$HOME/progs/share/man:/usr/man:/usr/share/man:/usr/local/man:/usr/local/share/man"
 
 zstyle ':completion:*' completer _complete _ignored
 zstyle ':completion:*' matcher-list 'm:{[:lower:][:upper:]}={[:upper:][:lower:]}'
