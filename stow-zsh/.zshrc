@@ -17,6 +17,9 @@ elif [[ "$SYST" = "OpenBSD" ]]; then
   alias ls="ls -F"
 fi
 alias l="ls"
+alias ll="ls -lh"
+alias la="ls -a"
+
 alias uxterm='uxterm -fa monospace:pixelsize=12'
 
 alias pasteit="curl -F 'sprunge=<-' http://sprunge.us"
