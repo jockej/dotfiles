@@ -10,7 +10,13 @@ elif [ "$SYS" == "OpenBSD" ]; then
 elif [ "$SYS" == "FreeBSD" ]; then
   feh --bg-scale ~/FreeBSD_Wallpaper.jpg
 fi
-urxvtd -q -f -o
+
+pgrep "urxvtd" &> /dev/null
+if [ "$?" -eq 0 ]; then
+  echo "urxvtd already running"
+else
+  urxvtd -q -f -o
+fi
 setxkbmap -option "" -layout "us,se" -option ctrl:swapcaps
 killall pwld
 pwld -l us,se -d
