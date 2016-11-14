@@ -24,22 +24,29 @@ alias uxterm='uxterm -fa monospace:pixelsize=12'
 
 alias pasteit="curl -F 'sprunge=<-' http://sprunge.us"
 
-export TERM=xterm-256color
-export ALTERNATE_EDITOR=""
-export EDITOR="emacsclient -t"
-export VISUAL="emacsclient -c"
+#export TERM=xterm-256color
+
+if [[ ! -z "$DISPLAY" ]]; then
+  export ALTERNATE_EDITOR=""
+  export EDITOR="emacsclient -t"
+  export VISUAL="emacsclient -c"
+  alias emacs='emacsclient -c'
+fi
+
 GPG_TTY=$(tty)
 export GPG_TTY
 
+if [[ ! -z "$DISPLAY" ]]; then
 # Setup the privoxy. w3m is _very_ fuzzy about the format of this, every other
 # program will accept 127.0.0.1:8118 but w3m just won't.
-export http_proxy=http://localhost:8118
-export HTTP_PROXY=$http_proxy
-export https_proxy=$http_proxy
-export HTTPS_PROXY=$http_proxy
-export no_proxy="localhost,127.0.0.1"
+  export http_proxy=http://localhost:8118
+  export HTTP_PROXY=$http_proxy
+  export https_proxy=$http_proxy
+  export HTTPS_PROXY=$http_proxy
+  export no_proxy="localhost,127.0.0.1"
+fi
 
-alias emacs='emacsclient -c'
+
 
 alias mc='mc -b'
 
