@@ -3,6 +3,7 @@ xterm*dynamicColors:      true
 xterm*metaSendsEscape:    true
 xterm*faceSize: 10
 xterm*faceName: Monospace
+xterm*scrollBar: false
 urxvt*font: xft:Monospace:size=10
 urxvt*letterspace: -1
 urxvt.scrollBar: false
@@ -14,18 +15,6 @@ UXTerm*allowSendEvents: True
 UXTerm*sessionMgt: false
 
 XTerm*highlightSelection:  true
-
-
-
-! (4/4) installing urxvt-perls                             
-! -> To enable extensions place the following in ~/.Xresources
-!   (change to whatever suits your needs)
-URxvt.perl-ext-common:      default,clipboard,url-select,keyboard-select
-URxvt.url-select.launcher:  luakit
-URxvt.url-select.underline: true
-URxvt.keysym.M-u:           perl:url-select:select_next
-URxvt.keysym.M-Escape:      perl:keyboard-select:activate
-URxvt.keysym.M-s:           perl:keyboard-select:search
 
 ! Emacs
 Emacs*font: Monospace-10
@@ -40,7 +29,6 @@ Emacs.menuBar: on
 ! Solarized color scheme for the X Window System
 !
 ! http://ethanschoonover.com/solarized
-
 
 ! Common
 
