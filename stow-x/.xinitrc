@@ -18,6 +18,10 @@ else
   urxvtd -q -f -o
 fi
 setxkbmap -option "" -layout "us,se" -option ctrl:swapcaps
-killall pwld
+if [ "$SYS" == "OpenBSD" ]; then
+  pkill pwld
+else
+  killall pwld
+fi
 pwld -l us,se -d
 i3
