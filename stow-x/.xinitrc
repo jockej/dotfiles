@@ -17,6 +17,7 @@ if [ "$?" -eq 0 ]; then
 else
   urxvtd -q -f -o
 fi
+xset -b
 setxkbmap -option "" -layout "us,se" -option ctrl:swapcaps
 if [ "$SYS" == "OpenBSD" ]; then
   pkill pwld
