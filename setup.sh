@@ -17,32 +17,28 @@ if [ -z "$HOMEDIR" ]; then
   exit 1
 fi
 
-if [ ! -d "$HOMEDIR/.config" ]; then
-  echo "Creating config dir"
-  mkdir "$HOMEDIR/.config"
-fi
+# Create a directory if it doesn't exist
+# $1 Name of directory to create
+create_dir()
+{
+  if [ ! -d "$1" ]; then
+    echo "Creating $1"
+    mkdir "$1"
+  fi
+}
 
-if [ ! -d "$HOMEDIR/.gnupg" ]; then
-  echo "Creating $HOMEDIR/.gnupg"
-  mkdir "$HOMEDIR/.gnupg"
-fi
+create_dir "$HOMEDIR/.config"
+create_dir "$HOMEDIR/.gnupg"
+create_dir "$HOMEDIR/.ssh"
+create_dir "$HOMEDIR/.zile-backups"
+create_dir "$HOMEDIR/.scripts"
+create_dir "$HOMEDIR/source"
+create_dir "$HOMEDIR/build"
+create_dir "$HOMEDIR/test"
 
-if [ ! -d "$HOMEDIR/.ssh" ]; then
-  echo "Creating $HOMEDIR/.ssh"
-  mkdir "$HOMEDIR/.ssh/"
-fi
-
-ZILE_BU_DIR="$HOMEDIR/.zile-backups"
-if [ ! -d "$ZILE_BU_DIR" ]; then
-  printf "Couldn't find zile backup dir, creating it: %s\n"\
-         "$ZILE_BU_DIR"
-  mkdir "$ZILE_BU_DIR"
-fi
-
-SCRIPTS_DIR="$HOMEDIR/.scripts"
-if [ ! -d "$SCRIPTS_DIR" ]; then
-  echo "Creating $SCRIPTS_DIR"
-  mkdir "$SCRIPTS_DIR"
+which stow
+if [ $? -ne 0 ]; then
+  exit 1
 fi
 
 SUBDIRS=`ls -d stow*`
