@@ -6,7 +6,7 @@
         excludesfile = ~/.gitignore
 
 [push]
-	default = simple
+	default = current
 
 [diff]
 	tool = ediff
@@ -21,4 +21,3 @@
 [mergetool "ediff"]
 	cmd = ~/.ediff-sh/ediff.sh $LOCAL $REMOTE $MERGED $BASE
 	truetExitCode = true
-
