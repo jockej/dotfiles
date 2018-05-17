@@ -1,6 +1,6 @@
-[user]
-	email = joakim.jalap@gmail.com
-	name = Joakim Jalap
+# [user]
+	# email = joakim.jalap@gmail.com
+	# name = Joakim Jalap
 
 [core]
         excludesfile = ~/.gitignore
