@@ -59,7 +59,7 @@ fi
 
 path=('/usr/local/bin' $path) # /usr/local/bin should override /usr/bin
 # I install packages I've compiled from source to here to keep track of them
-path=("$HOME/progs/bin" $path)
+path=("/usr/$HOME/progs" "$HOME/progs/bin" $path)
 
 export PATH
 
