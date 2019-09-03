@@ -20,7 +20,7 @@ diff3-has-program-arg = false
 merge-tool-cmd = /home/joakimj/.ediff-sh/svndiff.sh
 
 [miscellany]
-global-ignores = *.o *.lo *.la #*# .*.rej *.rej .*~ *~ .#* .DS_Store *GTAGS *GRTAGS *TAGS *GPATH *ID
+global-ignores = *.o *.lo *.la #*# .*.rej *.rej .*~ *~ .#* .DS_Store *TAGS *GPATH *ID *.dnx
 log-encoding = utf8
 enable-auto-props = yes
 
