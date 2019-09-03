@@ -2,7 +2,7 @@
 
 
 run_emacs_cmd() {
-  emacsclient --no-wait $C_OR_T --eval "$EVALSTR" 2>&1
+  exec emacs --eval "$EVALSTR" 2>&1
 }
 
 run_diff2() {
